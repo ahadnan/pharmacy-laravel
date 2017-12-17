@@ -17,11 +17,11 @@
                             <p class="card-text">
                                 <table>
                                     <tr>
-                                        <td>Price:</td>
+                                        <td><b>Price :</b></td>
                                         <td>৳ {{ $product->price }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Availability:</td>
+                                        <td><b>Availability :</b></td>
                                         <td>{{ $product->availability }}</td>
                                     </tr>
                                 </table>

@@ -23,11 +23,22 @@
                 <div class="col-md-8">
                     <div class="input-group mt-4">
                         <input type="text" class="form-control" placeholder="Search for medicine" aria-describedby="basic-addon2">
-                        <input type="button" value="SEARCH" class="btn btn-outline-primary  mr-4">
+                        <input type="button" value="SEARCH" class="btn btn-primary  mr-4">
 
-                        <span class="input-group-addon" id="basic-addon2"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control mr-4" placeholder="Cart">
-                        <button type="submit" class="btn btn-secondary  ">LOGIN</button>
+                        <button type="submit" class="btn btn-secondary mr-4">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;Shopping Cart
+                        </button>
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <i class="fa fa-user" aria-hidden="true"> </i> &nbsp;&nbsp;User Account
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-user-times" aria-hidden="true"> </i>Logout</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

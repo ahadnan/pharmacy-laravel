@@ -9,21 +9,37 @@
             <p class="lead product-details-info-text"><b>Brand : </b>{{ $product->brand }}</p>
             <p class="lead product-details-info-text"><b>Product Code : </b>{{ $product->productcode }}</p>
 
-            <div class="quantity">
-                <a href="#" class="quantity-minus">-</a>
-                <input title="Qty" class="email input-text qty text" type="text" value="2">
-                <a href="#" class="quantity-plus">+</a>
+            <div class="col-sm-4 col-xs-12">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button type="button"  class="btn btn-default" onclick="onMinus()">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                    </button>
+                </span>
+
+                <input type="text" id="count" class="form-control" style="width: 4px" value="1" min="1" max="10">
+
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" onclick="onPlus()">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                </span>
             </div>
 
-            {{-- <a href="19_cart.html" class="btn btn-medium btn--primary">
-                <span class="text">Add to Cart</span>
-                <i class="seoicon-commerce"></i>
-                <span class="semicircle"></span>
-            </a> --}}
-
-            <a href="#" class="btn btn-success">Add to Cart</a>
-
+            <a href="#" class="btn btn-primary mt-3">Add To Cart</a>
+            </div>
         </div>
+        <script>
+        var count = 0;
+        function onPlus() {
+            count++;
+            document.getElementById('count').setAttribute("value", count);
+        }
+         function onMinus() {
+            count--;
+            document.getElementById('count').setAttribute("value", count);
+        }
+        </script>
         <div class="col-md-5 pull-md-7">
             <img class="featurette-image img-fluid mx-auto" src="{{ asset($product->image) }}" alt="Generic placeholder image">
         </div>
