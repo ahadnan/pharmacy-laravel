@@ -34,10 +34,17 @@
                                 aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"> </i> &nbsp;&nbsp;User Account
                             </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fa fa-user-times" aria-hidden="true"> </i>Logout</a>
-                            </div>
+                            @if (Auth::check())
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{{ route('user.logout') }}">
+                                        <i class="fa fa-user-times" aria-hidden="true"> </i>Logout</a>
+                                    </div>
+                            @else
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{{ route('user.signup') }}">
+                                        <i class="fa fa-user-plus" aria-hidden="true"> </i>Signup/Login</a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
