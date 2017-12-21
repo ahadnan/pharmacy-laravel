@@ -25,9 +25,40 @@
                         <input type="text" class="form-control" placeholder="Search for medicine" aria-describedby="basic-addon2">
                         <input type="button" value="SEARCH" class="btn btn-primary  mr-4">
 
-                        <button type="submit" class="btn btn-secondary mr-4">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;Shopping Cart
+
+                        <button type="button" class="btn btn-secondary mr-4" data-toggle="modal" data-target="#myModal" data-backdrop="false">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;
+                            <span>({{ Cart::content()->count() }})</span>
+                            Shopping Cart
                         </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title align-center">{{ Cart::total() }} Taka</h4>
+          <button type="button" class="close btn btn-xs btn-danger" data-dismiss="modal">&times;</button>
+        </div>
+        {{-- <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div> --}}
+
+        <div class="text-center">
+            <a href="/cart">
+                <div class="btn btn-medium btn-primary">
+                    <span class="text">View cart</span>
+                </div>
+            </a>
+        </div>
+        <hr>
+      </div>
+
+    </div>
+  </div>
 
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
