@@ -81,13 +81,18 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <button type="button" class="btn btn-warning">
-                                                <span class="fa fa-chevron-circle-left"></span> Continue Shopping
-                                            </button>
+                                            <a href="{{ route('index') }}">
+                                                <button type="button" class="btn btn-warning">
+                                                    <span class="fa fa-chevron-circle-left"></span> Continue Shopping
+                                                </button>
+                                            </a>
                                         </td>
-                                        <td><button type="button" class="btn btn-success">
-                                            Checkout <span class="fa fa-check"></span>
-                                            </button>
+                                        <td>
+                                            <a href="{{ route('cart.checkout') }}">
+                                                <button type="button" class="btn btn-success">
+                                                    Checkout <span class="fa fa-check"></span>
+                                                </button>
+                                            </a>
                                         </td>
                                     </tr>
 

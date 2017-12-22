@@ -26,7 +26,9 @@
                                     </tr>
                                 </table>
                             </p>
-                            <a href="{{ route('cart.rapid.add', ['id' => $product->id ]) }}" class="btn btn-success">Add to Cart</a>
+                            <a href="{{ route('cart.rapid.add', ['id' => $product->id ]) }}" class="btn btn-success">
+                                Add to Cart <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

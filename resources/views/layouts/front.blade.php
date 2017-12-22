@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('app/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('app/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('app/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('app/toastr/toastr.min.css') }}">
     <link href="{{ asset('app/css/carousel.css') }}" rel="stylesheet">
     <title>Online Pharmacy</title>
 </head>
@@ -29,36 +30,40 @@
                         <button type="button" class="btn btn-secondary mr-4" data-toggle="modal" data-target="#myModal" data-backdrop="false">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;
                             <span>({{ Cart::content()->count() }})</span>
-                            Shopping Cart
+                            Cart
                         </button>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-sm">
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog modal-sm">
 
-      <!-- Modal content-->
-      <div class="modal-content">
+                            <!-- Modal content-->
+                            <div class="modal-content">
 
-        <div class="modal-header">
-          <h4 class="modal-title align-center">{{ Cart::total() }} Taka</h4>
-          <button type="button" class="close btn btn-xs btn-danger" data-dismiss="modal">&times;</button>
-        </div>
-        {{-- <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div> --}}
+                                <div class="modal-header">
+                                    <h4 class="modal-title align-center">{{ Cart::total() }} Taka</h4>
+                                    <button type="button" class="close btn btn-xs btn-danger" data-dismiss="modal">&times;</button>
+                                </div>
+                                @if (Cart::content()->count() == 0)
+                                    <div class="modal-body">
+                                        <h5>What? Buy Someting</h5>
+                                    </div>
+                                    @else
+                                        <h5>You Have {{ Cart::content()->count() }} Items To Buy</h5>
+                                @endif
 
-        <div class="text-center">
-            <a href="/cart">
-                <div class="btn btn-medium btn-primary">
-                    <span class="text">View cart</span>
-                </div>
-            </a>
-        </div>
-        <hr>
-      </div>
+                                <div class="text-center">
+                                    <a href="/cart">
+                                        <div class="btn btn-medium btn-primary">
+                                            <span class="text">View cart</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <hr>
+                                </div>
 
-    </div>
-  </div>
+                            </div>
+                        </div>
 
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
@@ -69,11 +74,13 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="{{ route('user.logout') }}">
                                         <i class="fa fa-user-times" aria-hidden="true"> </i>Logout</a>
-                                    </div>
+                                </div>
                             @else
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="{{ route('user.signup') }}">
                                         <i class="fa fa-user-plus" aria-hidden="true"> </i>Signup/Login</a>
+                                    {{-- <a class="dropdown-item" href="">
+                                        <i class="fa fa-user-circle" aria-hidden="true"></i>Profile</a> --}}
                                 </div>
                             @endif
                         </div>
@@ -92,17 +99,17 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">HOME </a>
+                        <a class="nav-link" href="{{ route('index') }}">HOME </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="madicines.html">MEDICINES</a>
+                        <a class="nav-link" href="">UPLOAD PRESCRIPTION</a>
                     </li>
-                    <li class="nav-item ">
+                    {{-- <li class="nav-item ">
                         <a class="nav-link" href="topmedicine.html">TOP MEDICINE</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cart.html">CART</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">CONTACT</a>
                     </li>
@@ -129,6 +136,19 @@
     <script src="{{ asset('app/js/jquery.min.js')}}"></script>
     <script src="{{ asset('app/js/tether.min.js')}}"></script>
     <script src="{{ asset('app/js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('app/toastr/toastr.min.js')}}"></script>
+
+    <script>
+        @if (Session::has('success'))
+            toastr.success('{{ Session::get('success') }}');
+        @endif
+    </script>
+
+    <script>
+        @if (Session::has('info'))
+            toastr.info('{{ Session::get('info') }}');
+        @endif
+    </script>
 </body>
 
 </html>

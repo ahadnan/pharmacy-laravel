@@ -73,3 +73,16 @@ Route::get('/cart/rapid/add/{id}', [
     'uses' => 'ShoppingController@rapid_add',
     'as' => 'cart.rapid.add'
 ]);
+
+Route::get('/cart/checkout', [
+    'uses' => 'CheckoutController@index',
+    'as' => 'cart.checkout'
+]);
+// Route::get('/contact', [
+//     'uses' => 'CheckoutController@index',
+//     'as' => 'contact'
+// ]);
+// Route::get('/upoad', [
+//     'uses' => 'CheckoutController@index',
+//     'as' => 'upload'
+// ]);
