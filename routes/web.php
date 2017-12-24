@@ -36,13 +36,23 @@ Route::group(['middleware' => 'guest'], function(){
         'uses' => 'UserController@postSignin',
         'as' => 'user.signin'
     ]);
+    // Route::post('/login/custom', [
+    //     'uses' => 'loginController@login',
+    //     'as' => 'login.custom'
+    // ]);
 });
+
+
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/user/logout', [
         'uses' => 'UserController@getLogout',
         'as' => 'user.logout'
     ]);
+
+    Route::resource('products','ProductController');
+
 });
+
 
 Route::post('/cart/add', [
     'uses' => 'ShoppingController@add_to_cart',
@@ -78,11 +88,12 @@ Route::get('/cart/checkout', [
     'uses' => 'CheckoutController@index',
     'as' => 'cart.checkout'
 ]);
-// Route::get('/contact', [
-//     'uses' => 'CheckoutController@index',
-//     'as' => 'contact'
-// ]);
-// Route::get('/upoad', [
-//     'uses' => 'CheckoutController@index',
-//     'as' => 'upload'
-// ]);
+
+
+Route::get('/upload', function () {
+    return view('upload');
+})->name('upload');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');

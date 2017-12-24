@@ -10,7 +10,7 @@ class FrontEndController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('index', ['products' => $products]);
+        return view('index', ['products' => Product::paginate(8)]);
     }
 
     public function singleProduct($id)

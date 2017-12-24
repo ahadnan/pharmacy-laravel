@@ -37,4 +37,11 @@
             </div>
         </section>
     @endforeach
+
+    <!-- Pagination -->
+
+    <div class="col-lg-12">
+        {{ $products->links() }}
+    </div>
+
 @endsection

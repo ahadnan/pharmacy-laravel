@@ -46,8 +46,9 @@
                                 </div>
                                 @if (Cart::content()->count() == 0)
                                     <div class="modal-body">
-                                        <h5>What? Buy Someting</h5>
+                                        <h5> What? Buy Someting</h5>
                                     </div>
+                                    <br>
                                     @else
                                         <h5>You Have {{ Cart::content()->count() }} Items To Buy</h5>
                                 @endif
@@ -102,16 +103,10 @@
                         <a class="nav-link" href="{{ route('index') }}">HOME </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">UPLOAD PRESCRIPTION</a>
-                    </li>
-                    {{-- <li class="nav-item ">
-                        <a class="nav-link" href="topmedicine.html">TOP MEDICINE</a>
+                        <a class="nav-link" href="{{ route('upload') }}">UPLOAD PRESCRIPTION</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cart.html">CART</a>
-                    </li> --}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">CONTACT</a>
+                        <a class="nav-link" href="{{ route('contact') }}">CONTACT</a>
                     </li>
                 </ul>
             </div>

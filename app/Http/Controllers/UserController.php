@@ -53,8 +53,19 @@ class UserController extends Controller
             'password' => 'required'
         ]);
 
-        if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password') ]))
+        // user login + admin login
+        // For admin login there is a extra logic use in
+        if(Auth::attempt([
+            'email' => $request->email,
+            'password' => $request->password
+        ]))
         {
+            $user = User::where('email', $request->email)->first();
+
+            if ($user->is_admin())
+            {
+                return redirect()->route('products.index');
+            }
             return redirect()->route('index');
         }
         return redirect()->back();
@@ -63,6 +74,6 @@ class UserController extends Controller
     public function getLogout()
     {
         Auth::logout();
-        return redirect()->back();
+        return redirect()->route('index');
     }
 }

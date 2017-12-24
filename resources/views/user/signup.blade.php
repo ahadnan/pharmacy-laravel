@@ -17,15 +17,7 @@
                     <div class="card-block">
                         <h4 class="card-title">Existing Customers</h4>
                         <small class="">sign in with the form below</small>
-                        {{-- @if ($errors->count() > 0)
-                            <ul class="list-group">
-                                @foreach ($errors->all() as $error)
-                                    <li class="list-group-item text-danger">
-                                        {{ $error }}
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif --}}
+                        {{-- <form action="{{ route('login.custom') }}" method="post"> --}}
                         <form action="{{ route('user.signin') }}" method="post">
                             {{ csrf_field() }}
                             <div class="form-group">
@@ -45,15 +37,6 @@
                 <div class="card">
                     <div class="card-block">
                         <h4 class="card-title">Register New Account</h4>
-                        {{-- @if ($errors->count() > 0)
-                            <ul class="list-group">
-                                @foreach ($errors->all() as $error)
-                                    <li class="list-group-item text-danger">
-                                        {{ $error }}
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif --}}
                         <form action="{{ route('user.signup') }}" method="post">
                             {{ csrf_field() }}
                             <div class="input-group pb-2">
