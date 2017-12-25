@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('app/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('app/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('app/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('app/css/jquery-ui.css') }}">
     <link rel="stylesheet" href="{{ asset('app/toastr/toastr.min.css') }}">
     <link href="{{ asset('app/css/carousel.css') }}" rel="stylesheet">
     <title>Online Pharmacy</title>
@@ -23,13 +24,26 @@
                 </div>
                 <div class="col-md-8">
                     <div class="input-group mt-4">
-                        <input type="text" class="form-control" placeholder="Search for medicine" aria-describedby="basic-addon2">
-                        <input type="button" value="SEARCH" class="btn btn-primary  mr-4">
+                        {{-- <input type="text" class="form-control" placeholder="Search for medicine" aria-describedby="basic-addon2">
+                        <input type="button" value="SEARCH" class="btn btn-primary  mr-4"> --}}
+
+
+                        <form class="navbar-form" action="{{ route('search') }}" method="GET" role="search">
+                            {{ csrf_field() }}
+                            <div class="input-group add-on">
+                                <input type="text" class="form-control" name="searchItem" id="searchItem" placeholder="Search for medicine" aria-describedby="basic-addon2">
+
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default mr-4" type="submit"><i class="fa fa-search"></i> Search</button>
+                                </div>
+                            </div>
+                        </form>
+
 
 
                         <button type="button" class="btn btn-secondary mr-4" data-toggle="modal" data-target="#myModal" data-backdrop="false">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;
-                            <span>({{ Cart::content()->count() }})</span>
+                            <small><span>({{ Cart::content()->count() }})</span></small>
                             Cart
                         </button>
 
@@ -46,7 +60,7 @@
                                 </div>
                                 @if (Cart::content()->count() == 0)
                                     <div class="modal-body">
-                                        <h5> What? Buy Someting</h5>
+                                        <h5 class="text-center">Nada! Go Buy Someting</h5>
                                     </div>
                                     <br>
                                     @else
@@ -129,6 +143,7 @@
 </div>
 
     <script src="{{ asset('app/js/jquery.min.js')}}"></script>
+    <script src="{{ asset('app/js/jquery-ui.min.js')}}"></script>
     <script src="{{ asset('app/js/tether.min.js')}}"></script>
     <script src="{{ asset('app/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('app/toastr/toastr.min.js')}}"></script>
@@ -143,6 +158,15 @@
         @if (Session::has('info'))
             toastr.info('{{ Session::get('info') }}');
         @endif
+    </script>
+
+    <script>
+    $( function() {
+      $( "#searchItem" ).autocomplete({
+        source: 'http://pharmacy.dev/search',
+        autofocus: true
+      });
+    } );
     </script>
 </body>
 

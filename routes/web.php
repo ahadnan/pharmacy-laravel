@@ -16,6 +16,11 @@ Route::get('/', [
     'as' => 'index'
 ]);
 
+Route::get('/search', [
+    'uses' => 'FrontEndController@search',
+    'as' => 'search'
+]);
+
 Route::get('/product/{id}', [
     'uses' => 'FrontEndController@singleProduct',
     'as' => 'product.single'
