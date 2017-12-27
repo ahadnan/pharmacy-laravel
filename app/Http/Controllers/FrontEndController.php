@@ -28,17 +28,18 @@ class FrontEndController extends Controller
         else {
             foreach ($products as $key => $value) {
                 $searchResult[] = $value->name;
+                // $searchId[] = $value->id;
             }
         }
         return $searchResult;
 
-        // return view("product.single,['id' => $product->id ]")->with($product->name, $searchResult);
+        // return view("product.single,['id' => $product->id ]")->with($product->name, $searchResult)->with($product->id, $searchId);
         // $product->name = $searchResult;
 
-        // return view("product.single,['id' => $product->id ]",compact($product->name,$searchResult));
-        return view("product.single,['id' => $product->id ]",[
-            $product->name => $searchResult
-        ]);
+        // return view("product.single,['id' => $product->id ]",[
+        //     $product->name => $searchResult,
+        //     $product->id => $searchId
+        // ]);
 
     }
 

@@ -30,7 +30,7 @@
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{-- {{ config('app.name', 'Laravel') }} --}}
-                        Care Pharmacy
+                        <b>Care Pharmacy</b>
                     </a>
                 </div>
 

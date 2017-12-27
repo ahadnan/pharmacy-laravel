@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('app/css/jquery-ui.css') }}">
     <link rel="stylesheet" href="{{ asset('app/toastr/toastr.min.css') }}">
     <link href="{{ asset('app/css/carousel.css') }}" rel="stylesheet">
-    <title>Online Pharmacy</title>
+    <title>Care Pharmacy</title>
 </head>
 
 <body>
@@ -55,18 +55,19 @@
                             <div class="modal-content">
 
                                 <div class="modal-header">
-                                    <h4 class="modal-title align-center">{{ Cart::total() }} Taka</h4>
+                                    <h4 class="modal-title text-center">{{ Cart::total() }} Taka</h4>
                                     <button type="button" class="close btn btn-xs btn-danger" data-dismiss="modal">&times;</button>
                                 </div>
+                                <br>
                                 @if (Cart::content()->count() == 0)
                                     <div class="modal-body">
-                                        <h5 class="text-center">Nada! Go Buy Someting</h5>
+                                        <h5 class="text-center">Nothing!! Go Buy Someting</h5>
                                     </div>
                                     <br>
                                     @else
-                                        <h5>You Have {{ Cart::content()->count() }} Items To Buy</h5>
+                                        <h5 class="text-center">You Have {{ Cart::content()->count() }} Items To Buy</h5>
                                 @endif
-
+                                <br>
                                 <div class="text-center">
                                     <a href="/cart">
                                         <div class="btn btn-medium btn-primary">
@@ -113,11 +114,14 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ route('index') }}">HOME </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ route('upload') }}">UPLOAD PRESCRIPTION</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('requesting') }}">REQUESTING MEDICINE</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact') }}">CONTACT</a>
@@ -129,18 +133,30 @@
         <div class="container">
             @yield('content')
         </div>
+        <br><br><br><br>
        <!-- FOOTER SECTION -->
-{{-- <footer id="main-footer" class="bg-inverse fixed-bottom">
-    <div class="row">
-        <div class="col text-center">
-            <div class="py-3">
-                <h1 class="h3">Online Pharmacy</h1>
-                <p>Copyright &copy; 2017</p>
+
+</div>
+    {{-- <footer id="main-footer" class="bg-inverse">
+        <div class="row">
+            <div class="col text-center">
+                <div class="py-3">
+                    <h1 class="h3">Online Pharmacy</h1>
+                    <p>Copyright &copy; 2017</p>
+                </div>
             </div>
         </div>
-    </div>
-</footer> --}}
-</div>
+    </footer> --}}
+    <footer id="main-footer" class="bg-inverse ">
+
+            <div class="col text-center">
+                <div class=" container-fluid py-3">
+                    <h1 class="h3">Care Pharmacy</h1>
+                    <p>Copyright &copy; 2017</p>
+                </div>
+            </div>
+
+    </footer>
 
     <script src="{{ asset('app/js/jquery.min.js')}}"></script>
     <script src="{{ asset('app/js/jquery-ui.min.js')}}"></script>
@@ -164,6 +180,7 @@
     $( function() {
       $( "#searchItem" ).autocomplete({
         source: 'http://pharmacy.dev/search',
+        // source: 'http://pharmacy.dev/product/{id}',
         autofocus: true
       });
     } );

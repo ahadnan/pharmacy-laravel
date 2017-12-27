@@ -20,7 +20,8 @@
             <div class="col-md-8">
 
                 <h4>Contact Us</h4>
-                <form >
+                <form action="{{ route('contact') }}" method="post">
+                    {{ csrf_field() }}
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="form-control">
@@ -35,7 +36,7 @@
                     </div>
 
 
-                    <button class="btn btn-outline-primary btn-block mt-4" type="submit">Submit</button>
+                    <button class="btn btn-primary btn-block mt-4" type="submit">Submit</button>
                 </form>
 
             </div>

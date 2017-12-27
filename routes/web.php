@@ -88,9 +88,14 @@ Route::get('/cart/rapid/add/{id}', [
     'uses' => 'ShoppingController@rapid_add',
     'as' => 'cart.rapid.add'
 ]);
-
+// Checkout
 Route::get('/cart/checkout', [
     'uses' => 'CheckoutController@index',
+    'as' => 'cart.checkout'
+]);
+
+Route::post('/cart/checkout', [
+    'uses' => 'CheckoutController@postCheckout',
     'as' => 'cart.checkout'
 ]);
 
@@ -98,6 +103,10 @@ Route::get('/cart/checkout', [
 Route::get('/upload', function () {
     return view('upload');
 })->name('upload');
+
+Route::get('/requesting', function () {
+    return view('requesting');
+})->name('requesting');
 
 Route::get('/contact', function () {
     return view('contact');

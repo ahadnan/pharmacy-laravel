@@ -7,7 +7,7 @@
         <div class="row mt-4">
             <div class="col-md-8">
 
-                <h4>Upload Your Prescription</h4>
+                <h4>Requesting Medicine</h4>
                 <hr>
                 <form action="{{ route('upload') }}" method="post">
                     {{ csrf_field() }}
@@ -27,13 +27,17 @@
                       <label for="file">Upload Your File*</label>
                       <input type="file" name="file" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label for="name">Comment</label>
+                        <textarea class="form-control" rows="5">write something ... </textarea>
+                    </div>
 
 
                     <button class="btn btn-primary btn-block mt-4" type="submit">Submit</button>
                 </form>
 
             </div>
-            
+
         </div>
     </section>
 @endsection

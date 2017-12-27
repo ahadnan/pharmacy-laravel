@@ -9,7 +9,8 @@
             {{-- <div class="col-lg-4 col-md-4 col-sm-6 mb-4"> --}}
                 <div class="card">
                     <div class="card">
-                        <img class="card-img-top" src="{{ asset('uploads/products/pills.png') }}">
+                        {{-- <img class="card-img-top" src="{{ asset('uploads/products/pills.png') }}"> --}}
+                        <img class="card-img-top" src="{{ asset($product->image) }}">
                         <div class="card-block text-center">
                             <a href="{{ route('product.single',['id' => $product->id ]) }}">
                                 <h5 class="card-title">{{ $product->name }}</h5>
