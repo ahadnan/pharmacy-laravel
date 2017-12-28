@@ -28,7 +28,6 @@ class FrontEndController extends Controller
         else {
             foreach ($products as $key => $value) {
                 $searchResult[] = $value->name;
-                // $searchId[] = $value->id;
             }
         }
         return $searchResult;
@@ -40,6 +39,8 @@ class FrontEndController extends Controller
         //     $product->name => $searchResult,
         //     $product->id => $searchId
         // ]);
+
+        // return view('index',compact('products'));
 
     }
 

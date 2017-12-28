@@ -9,7 +9,7 @@
 
                 <h4>Upload Your Prescription</h4>
                 <hr>
-                <form action="{{ route('upload') }}" method="post">
+                <form action="{{ route('upload.store') }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="name">Name*</label>
@@ -20,12 +20,20 @@
                         <input type="text" name="email" class="form-control">
                     </div>
                     <div class="form-group">
+                        <label for="address">Shipping Address*</label>
+                        <input type="text" name="address" class="form-control">
+                    </div>
+                    <div class="form-group">
                         <label for="phone">Phone Number*</label>
                         <input type="text" name="phone" class="form-control">
                     </div>
                     <div class="form-group">
-                      <label for="file">Upload Your File*</label>
-                      <input type="file" name="file" class="form-control">
+                      <label for="image">Upload Your File*</label>
+                      <input type="file" name="image" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message*</label>
+                        <textarea class="form-control" name="message" rows="5" placeholder="Write Any Instruction ..."></textarea>
                     </div>
 
 
@@ -33,7 +41,7 @@
                 </form>
 
             </div>
-            
+
         </div>
     </section>
 @endsection

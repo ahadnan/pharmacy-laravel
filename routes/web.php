@@ -99,10 +99,15 @@ Route::post('/cart/checkout', [
     'as' => 'cart.checkout'
 ]);
 
-
-Route::get('/upload', function () {
-    return view('upload');
-})->name('upload');
+// Prescription
+Route::get('/upload', [
+    'uses' => 'UploadController@index',
+    'as' => 'upload'
+]);
+Route::post('/upload', [
+    'uses' => 'UploadController@store',
+    'as' => 'upload.store'
+]);
 
 Route::get('/requesting', function () {
     return view('requesting');

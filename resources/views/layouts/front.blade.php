@@ -28,13 +28,13 @@
                         <input type="button" value="SEARCH" class="btn btn-primary  mr-4"> --}}
 
 
-                        <form class="navbar-form" action="{{ route('search') }}" method="GET" role="search">
+                        <form class="navbar-form" action="{{ route('search') }}" method="get" role="search">
                             {{ csrf_field() }}
                             <div class="input-group add-on">
                                 <input type="text" class="form-control" name="searchItem" id="searchItem" placeholder="Search for medicine" aria-describedby="basic-addon2">
 
                                 <div class="input-group-btn">
-                                    <button class="btn btn-default mr-4" type="submit"><i class="fa fa-search"></i> Search</button>
+                                    <button class="btn btn-default mr-4" type="submit"><i class="fa fa-search"></i>Search</button>
                                 </div>
                             </div>
                         </form>
@@ -114,10 +114,10 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('index') }}">HOME </a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('upload') }}">UPLOAD PRESCRIPTION</a>
                     </li>
                     <li class="nav-item">
@@ -179,8 +179,8 @@
     <script>
     $( function() {
       $( "#searchItem" ).autocomplete({
+        // source: 'http://pharmacy.dev/search',
         source: 'http://pharmacy.dev/search',
-        // source: 'http://pharmacy.dev/product/{id}',
         autofocus: true
       });
     } );

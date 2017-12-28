@@ -27,11 +27,11 @@
                         <input type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="name">Email</label>
+                        <label for="email">Email</label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="name">Message</label>
+                        <label for="message">Message</label>
                         <textarea class="form-control" rows="5">write message ... </textarea>
                     </div>
 

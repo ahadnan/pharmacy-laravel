@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group">
                         <label for="name">Comment</label>
-                        <textarea class="form-control" rows="5">write something ... </textarea>
+                        <textarea class="form-control" rows="5" placeholder="Write Something ..."></textarea>
                     </div>
 
 
