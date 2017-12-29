@@ -91,12 +91,14 @@ Route::get('/cart/rapid/add/{id}', [
 // Checkout
 Route::get('/cart/checkout', [
     'uses' => 'CheckoutController@index',
-    'as' => 'cart.checkout'
+    'as' => 'cart.checkout',
+    'middleware' => 'auth'
 ]);
 
 Route::post('/cart/checkout', [
     'uses' => 'CheckoutController@postCheckout',
-    'as' => 'cart.checkout'
+    'as' => 'cart.checkout',
+    'middleware' => 'auth'
 ]);
 
 // Prescription

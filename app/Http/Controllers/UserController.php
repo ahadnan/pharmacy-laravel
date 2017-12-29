@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Auth;
+use Session;
 
 class UserController extends Controller
 {
@@ -43,6 +44,13 @@ class UserController extends Controller
 
         Auth::login($user);
 
+        // Forced login
+        if (Session::has('oldUrl')) {
+            $oldUrl = Session::get('oldUrl');
+            Session::forget('oldUrl');
+            return redirect()->to($oldUrl);
+        }
+
         return redirect()->route('index');
     }
 
@@ -66,6 +74,13 @@ class UserController extends Controller
             {
                 return redirect()->route('products.index');
             }
+            // Forced login
+            if (Session::has('oldUrl')) {
+                $oldUrl = Session::get('oldUrl');
+                Session::forget('oldUrl');
+                return redirect()->to($oldUrl);
+            }
+
             return redirect()->route('index');
         }
         return redirect()->back();
@@ -74,6 +89,6 @@ class UserController extends Controller
     public function getLogout()
     {
         Auth::logout();
-        return redirect()->route('index');
+        return redirect()->route('user.signup');
     }
 }

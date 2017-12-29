@@ -45,15 +45,16 @@
 
                                 <h2 class="checkout-heading">Delivery Information</h2>
 
-                                <form>
+                                <form action="{{ route('cart.checkout') }}" method="post">
+                                    {{ csrf_field() }}
 
-                                    <div class="form-group row">
+                                    {{-- <div class="form-group row">
                                         <label for="name" class="col-sm-4 col-form-label">Name</label>
 
                                         <div class="col-sm-8">
-                                            <input type="text" name="name" class="form-control"  value="" placeholder="First Name" >
+                                            <input type="text" name="name" class="form-control"  value="" placeholder="Name" >
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     {{-- <div class="form-group row">
                                         <label for="last_name" class="col-sm-4 col-form-label">Last Name*</label>
@@ -64,10 +65,10 @@
                                     </div> --}}
 
                                     <div class="form-group row">
-                                        <label for="Address" class="col-sm-4 col-form-label">Address</label>
+                                        <label for="address" class="col-sm-4 col-form-label">Delivery Address</label>
 
                                         <div class="col-sm-8">
-                                            <input type="text" name="Address" class="form-control"  value="" placeholder="Address" >
+                                            <input type="text" name="address" class="form-control"  value="" placeholder="Address" >
                                         </div>
                                     </div>
 
@@ -80,10 +81,10 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="post_code" class="col-sm-4 col-form-label">Post_code</label>
+                                        <label for="zip" class="col-sm-4 col-form-label">Post_code</label>
 
                                         <div class="col-sm-8">
-                                            <input type="text" name="post_code" class="form-control"  value="" placeholder="Post code" >
+                                            <input type="text" name="zip" class="form-control"  value="" placeholder="Post code" >
                                         </div>
                                     </div>
 
@@ -104,13 +105,13 @@
                                     <h2 class="checkout-heading"> Payment Method</h2>
                                     <div class="form-check">
                                         <label class="form-check-label">
-                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                            <input class="form-check-input" type="radio" name="payment" value="cashOnDelivery" checked>
                                             Cash on Delivery
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <label class="form-check-label">
-                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" >
+                                            <input class="form-check-input" type="radio" name="payment" value="bcash">
                                                 bcash
                                         </label>
                                     </div>

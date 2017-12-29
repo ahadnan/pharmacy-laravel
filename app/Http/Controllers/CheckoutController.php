@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Cart;
+use App\Order;
 use Session;
 use Illuminate\Http\Request;
 
@@ -16,5 +18,27 @@ class CheckoutController extends Controller
             return redirect()->back();
         }
         return view('checkout');
+    }
+
+    public function postCheckout(Request $request)
+    {
+        $oldCart = Cart::content();
+        $cart = new Cart($oldCart);
+
+        $order = new Order;
+        $order->cart = serialize($cart);
+        $order->address = $request->input('address');
+        $order->area = $request->input('area');
+        $order->zip = $request->input('zip');
+        $order->payment = $request->get('payment');
+
+        Auth::user()->orders()->save($order);
+
+        Session::flash('success','Purchase Successfully');
+
+        Cart::destroy();
+
+        return redirect()->route('index');
+
     }
 }
