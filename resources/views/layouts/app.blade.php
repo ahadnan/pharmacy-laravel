@@ -40,12 +40,26 @@
                         &nbsp;
                     </ul> --}}
                     <ul class="nav navbar-nav">
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{ route('products.index') }}">Products</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{ route('products.create') }}">New Products</a>
-                      </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('products.index') }}">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('products.create') }}">Add Products</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{ route('orders') }}">Orders
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{url('orders/pending')}}">Pending Orders</a></li>
+                                <li><a href="{{url('orders/delivered')}}">Delivered Orders</a></li>
+                                <li><a href="{{url('orders')}}">All Orders</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('requested') }}">Requested</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

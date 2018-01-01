@@ -54,7 +54,21 @@ Route::group(['middleware' => 'auth'], function(){
         'as' => 'user.logout'
     ]);
 
+
     Route::resource('products','ProductController');
+
+    // orders
+    Route::get('/orders/{type?}', [
+        'uses' => 'OrderController@orders',
+        'as' => 'orders'
+    ]);
+    Route::post('toggledeliver/{orderId}', 'OrderController@toggledeliver')->name('toggle.deliver');
+
+    // requesting Prescription admin
+    Route::get('/requested', [
+        'uses' => 'AdminController@requested',
+        'as' => 'requested'
+    ]);
 
 });
 
@@ -88,6 +102,7 @@ Route::get('/cart/rapid/add/{id}', [
     'uses' => 'ShoppingController@rapid_add',
     'as' => 'cart.rapid.add'
 ]);
+
 // Checkout
 Route::get('/cart/checkout', [
     'uses' => 'CheckoutController@index',
@@ -96,10 +111,16 @@ Route::get('/cart/checkout', [
 ]);
 
 Route::post('/cart/checkout', [
-    'uses' => 'CheckoutController@postCheckout',
-    'as' => 'cart.checkout',
+    'uses' => 'CheckoutController@store',
+    'as' => 'address.store',
     'middleware' => 'auth'
 ]);
+
+// Route::post('/cart/checkout', [
+//     'uses' => 'CheckoutController@postCheckout',
+//     'as' => 'cart.checkout',
+//     'middleware' => 'auth'
+// ]);
 
 // Prescription
 Route::get('/upload', [

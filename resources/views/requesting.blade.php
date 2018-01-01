@@ -24,11 +24,7 @@
                         <input type="text" name="phone" class="form-control">
                     </div>
                     <div class="form-group">
-                      <label for="file">Upload Your File*</label>
-                      <input type="file" name="file" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="name">Comment</label>
+                        <label for="name">Request Medicine*</label>
                         <textarea class="form-control" rows="5" placeholder="Write Something ..."></textarea>
                     </div>
 

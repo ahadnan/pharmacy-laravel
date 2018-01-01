@@ -45,7 +45,7 @@
 
                                 <h2 class="checkout-heading">Delivery Information</h2>
 
-                                <form action="{{ route('cart.checkout') }}" method="post">
+                                <form action="{{ route('address.store') }}" method="post">
                                     {{ csrf_field() }}
 
                                     {{-- <div class="form-group row">
