@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="{{ asset('app/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('app/css/jquery-ui.css') }}">
     <link rel="stylesheet" href="{{ asset('app/toastr/toastr.min.css') }}">
-    <link href="{{ asset('app/css/carousel.css') }}" rel="stylesheet">
     <title>Care Pharmacy</title>
 </head>
 
@@ -24,11 +23,9 @@
                 </div>
                 <div class="col-md-8">
                     <div class="input-group mt-4">
-                        {{-- <input type="text" class="form-control" placeholder="Search for medicine" aria-describedby="basic-addon2">
-                        <input type="button" value="SEARCH" class="btn btn-primary  mr-4"> --}}
-
 
                         <form class="navbar-form" action="{{ route('search') }}" method="get" role="search">
+                        {{-- <form class="navbar-form" action="{{ url('/search') }}" method="get" role="search"> --}}
                             {{ csrf_field() }}
                             <div class="input-group add-on">
                                 <input type="text" class="form-control" name="searchItem" id="searchItem" placeholder="Search for medicine" aria-describedby="basic-addon2">
@@ -170,15 +167,38 @@
         @if (Session::has('info'))
             toastr.info('{{ Session::get('info') }}');
         @endif
-    </script>
 
-    <script>
-    $( function() {
-      $( "#searchItem" ).autocomplete({
-        source: 'http://pharmacy.dev/search',
-        autofocus: true
-      });
-    } );
+
+        @php
+            $pros = DB::table('products')->get()
+        @endphp
+
+        $(function(){
+            var source = [
+                    @foreach ($pros as $pro)
+                    {
+                        value:"{{ url('/')}}/product/{{ $pro->id }}",
+                        label:"{{ $pro->name }}"
+                    },
+                    @endforeach
+            ];
+
+            $("#searchItem").autocomplete({
+                source: source,
+                autofocus: true,
+                select: function(event,ui){
+                    window.location.href = ui.item.value;
+                }
+            });
+        });
+
+
+    // $( function() {
+    //   $( "#searchItem" ).autocomplete({
+    //     source: 'http://pharmacy.dev/search',
+    //     autofocus: true
+    //   });
+    // } );
     </script>
 </body>
 

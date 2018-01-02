@@ -13,7 +13,9 @@
                             @foreach($orders as $order)
                                 <li>
                                     <h4 class="text-center">Order by <strong>{{$order->user->name}} </strong>
-                                        <br><strong> Total Price {{$order->total}}</strong>
+                                        <br><strong> Total Price : {{$order->total}}</strong>
+                                        <br><strong> Address : {{$order->user->address}}</strong>
+                                        <br><strong> Phone : {{$order->user->phone}}</strong>
                                     </h4>
 
                                     <form action="{{route('toggle.deliver',$order->id)}}" method="POST" class="pull-right" id="deliver-toggle">
@@ -29,18 +31,18 @@
                                     <table class="table table-bordered">
                                         <tr>
                                             <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Address</th>
-                                            <th>Phone</th>
+                                            {{-- <th>Email</th> --}}
+                                            {{-- <th>Address</th> --}}
+                                            {{-- <th>Phone</th> --}}
                                             <th>qty</th>
                                             <th>price</th>
                                         </tr>
                                         @foreach($order->orderItems as $item)
                                             <tr>
                                                 <td>{{$item->name}}</td>
-                                                <td>{{$order->user->email}}</td>
-                                                <td>{{$order->user->address}}</td>
-                                                <td>{{$order->user->phone}}</td>
+                                                {{-- <td>{{$order->user->email}}</td> --}}
+                                                {{-- <td>{{$order->user->address}}</td> --}}
+                                                {{-- <td>{{$order->user->phone}}</td> --}}
                                                 <td>{{$item->pivot->qty}}</td>
                                                 <td>{{$item->pivot->total}}</td>
                                             </tr>
