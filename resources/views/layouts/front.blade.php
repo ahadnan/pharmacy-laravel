@@ -39,8 +39,6 @@
                             </div>
                         </form>
 
-
-
                         <button type="button" class="btn btn-secondary mr-4" data-toggle="modal" data-target="#myModal" data-backdrop="false">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;
                             <small><span>({{ Cart::content()->count() }})</span></small>
@@ -168,9 +166,7 @@
         @if (Session::has('success'))
             toastr.success('{{ Session::get('success') }}');
         @endif
-    </script>
 
-    <script>
         @if (Session::has('info'))
             toastr.info('{{ Session::get('info') }}');
         @endif
@@ -179,7 +175,6 @@
     <script>
     $( function() {
       $( "#searchItem" ).autocomplete({
-        // source: 'http://pharmacy.dev/search',
         source: 'http://pharmacy.dev/search',
         autofocus: true
       });

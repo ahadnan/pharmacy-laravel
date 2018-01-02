@@ -5,9 +5,6 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    {{-- <div class="panel-heading">
-                        Orders
-                    </div> --}}
                     <div class="panel-body">
                         <h3 class="text-center">Orders</h3>
                         <hr>

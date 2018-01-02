@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
 {
+
     public function index()
     {
         $products = Product::all();
@@ -20,27 +21,27 @@ class FrontEndController extends Controller
 
     public function search(Request $request)
     {
-        $term = $request->term;
-        $products = Product::where('name','LIKE','%'.$term.'%')->get();
-        if (count($products) == 0) {
-            $searchResult[] = 'No Medicine Found';
+        // $term = $request->term;
+        // $products = Product::where('name','LIKE','%'.$term.'%')->get();
+        // if (count($products) == 0) {
+        //     $searchResult[] = 'No Medicine Found';
+        // }
+        // else {
+        //     foreach ($products as $key => $value) {
+        //         $searchResult[] = $value->name;
+        //     }
+        // }
+        // return $searchResult;
+
+
+        $search = $request->searchItem;
+        if ($search == '') {
+            return view('index', ['products' => Product::paginate(8)]);
         }
         else {
-            foreach ($products as $key => $value) {
-                $searchResult[] = $value->name;
-            }
+            $products = Product::where('name','LIKE','%'.$search.'%')->paginate(2);
+            return view('index', ['msg' =>'Results : '. $search] , compact('products'));
         }
-        return $searchResult;
-
-        // return view("product.single,['id' => $product->id ]")->with($product->name, $searchResult)->with($product->id, $searchId);
-        // $product->name = $searchResult;
-
-        // return view("product.single,['id' => $product->id ]",[
-        //     $product->name => $searchResult,
-        //     $product->id => $searchId
-        // ]);
-
-        // return view('index',compact('products'));
 
     }
 

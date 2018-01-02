@@ -1,6 +1,15 @@
 @extends('layouts.front')
 
 @section('content')
+    <h2 class="title text-center">
+        @if (isset($msg))
+            {{ $msg }}
+        @endif
+    </h2><hr>
+    @if ($products->isEmpty())
+        <h4>Sorry, Products not found</h4>
+
+    @else
     @foreach ($products->chunk(4) as $productChunk)
         <section id="medicine-section ">
             <div class="row">
@@ -39,6 +48,7 @@
         </section>
     @endforeach
 
+    @endif
     <!-- Pagination -->
 
     <div class="col-lg-12">
