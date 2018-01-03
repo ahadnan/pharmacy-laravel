@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Order;
 use Illuminate\Http\Request;
 use Auth;
 use Session;
@@ -91,4 +92,11 @@ class UserController extends Controller
         Auth::logout();
         return redirect()->route('user.signup');
     }
+
+    public function orders(Request $request)
+    {
+        $orders = Auth::user()->orders;
+        return view('profile.orders',['orders' => $orders]);
+    }
+
 }

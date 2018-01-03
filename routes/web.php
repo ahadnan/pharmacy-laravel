@@ -53,7 +53,11 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'UserController@getLogout',
         'as' => 'user.logout'
     ]);
-
+    // user orders
+    Route::get('/user/orders', [
+        'uses' => 'UserController@orders',
+        'as' => 'profile.orders'
+    ]);
 
     Route::resource('products','ProductController');
 

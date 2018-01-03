@@ -10,7 +10,8 @@
 #cart-section .mright {
   margin-right: 190px; }
 
-
+#order-section thead {
+  color: white; }
 
 /*guest Checkout*/
 
@@ -55,10 +56,6 @@
     background-color: #5f6874;
     padding:10px;
     font-weight: bold;
-
-
-
-
 }
 
 .form-control{

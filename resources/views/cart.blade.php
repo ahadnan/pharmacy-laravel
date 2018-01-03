@@ -20,7 +20,7 @@
 
                     @foreach (Cart::content() as $pdt)
                         <tr>
-                            <th >
+                            <th>
                                 <a class="thumbnail pull-left" href="#"> <img class="media-object" src="{{ asset($pdt->model->image) }}" alt="product" style="width: 72px; height: 72px;">
                                 </a>
                             </th>
@@ -57,7 +57,6 @@
                         </tr>
 
                     @endforeach
-
 
                     <tr>
                         <th scope="row"></th>

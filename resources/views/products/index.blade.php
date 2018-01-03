@@ -12,6 +12,9 @@
                         <table class="table">
                             <thead>
                                 <th>
+                                    Image
+                                </th>
+                                <th>
                                     Name
                                 </th>
                                 <th>
@@ -27,6 +30,9 @@
                             <tbody>
                                 @foreach ($products as $product)
                                     <tr>
+                                        <td>
+                                            <img class="media-object" src="{{ asset($product->image) }}" alt="product" style="width: 50px; height: 50px;">
+                                        </td>
                                         <td>{{ $product->name }}</td>
                                         <td>{{ $product->price }}</td>
                                         <td>
