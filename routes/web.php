@@ -58,6 +58,14 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'UserController@orders',
         'as' => 'profile.orders'
     ]);
+    // User Manage
+    Route::get('/user/manage', [
+        'uses' => 'AdminController@user',
+        'as' => 'user'
+    ]);
+    // Route::get('/user/manage', function(){
+    //     return view('admin.user');
+    // })->name('user');
 
     Route::resource('products','ProductController');
 

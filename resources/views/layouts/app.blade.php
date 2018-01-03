@@ -60,6 +60,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('requested') }}">Requested</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('user') }}">Parchase Report</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

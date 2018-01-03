@@ -13,6 +13,10 @@
 #order-section thead {
   color: white; }
 
+.card .card-img-top {
+  	height: 300px;
+}
+
 /*guest Checkout*/
 
 .checkout{

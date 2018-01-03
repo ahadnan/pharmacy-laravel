@@ -15,7 +15,6 @@
                                     <h4 class="text-center">Order by <strong>{{$upload->name}} </strong>
                                     </h4>
                                     <hr>
-                                    <h5>Address</h5>
                                     <table class="table table-bordered">
                                         <tr>
 
